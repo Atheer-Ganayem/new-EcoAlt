@@ -52,7 +52,7 @@ const PriceSummary = ({
             await switchDeliveryStatus(orderId);
           }}
         >
-          {isDelivered ? (
+          {isDelivered && session?.user.isAdmin ? (
             <span className="flex gap-3 items-center">
               Mark As Not Delivered <CalendarX />
             </span>

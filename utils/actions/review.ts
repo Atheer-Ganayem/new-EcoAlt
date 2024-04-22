@@ -81,6 +81,7 @@ export const submitReview: (prev: any, formData: FormData) => Promise<Res> = asy
     await product.save();
 
     revalidatePath(`/products/${product._id}`);
+    revalidatePath("/");
 
     return {
       error: false,
