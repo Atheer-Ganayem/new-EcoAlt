@@ -159,6 +159,8 @@ export const editProduct: (data: EditProductData) => Promise<AddProdudctRes> = a
     await product.save();
 
     revalidatePath("/admin/products");
+    revalidatePath("/");
+    revalidatePath(`/products/${product._id}`);
 
     return {
       error: false,
