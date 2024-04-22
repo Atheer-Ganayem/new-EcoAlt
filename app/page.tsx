@@ -3,8 +3,8 @@ import ProductsSkeleton from "@/components/home/ProductsSkeleton";
 import { Metadata } from "next";
 import { Suspense } from "react";
 import Product from "@/models/Product";
-import { Pagination } from "@nextui-org/react";
 import HomePagintation from "@/components/home/HomePagintation";
+import { connectDB } from "@/utils/connectDB";
 
 interface Props {
   searchParams: { page: string };
@@ -19,6 +19,8 @@ export default async function Home({ searchParams }: Props) {
   if (page <= 0) {
     page = 1;
   }
+
+  await connectDB();
 
   const totalPages = Math.ceil((await Product.countDocuments()) / 6);
 

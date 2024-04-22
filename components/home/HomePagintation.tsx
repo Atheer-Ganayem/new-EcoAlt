@@ -1,7 +1,7 @@
 "use client";
 
 import { Pagination } from "@nextui-org/react";
-import { redirect, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import React from "react";
 
 interface Props {
