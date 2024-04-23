@@ -4,6 +4,7 @@ import Order from "@/models/Order";
 import User from "@/models/User";
 import { OrderDoc, ProductDoc, UserDoc } from "@/types/mongoModels";
 import { authOptions } from "@/utils/authOptions";
+import { connectDB } from "@/utils/connectDB";
 import { getServerSession } from "next-auth";
 import { notFound, redirect } from "next/navigation";
 import React from "react";
@@ -18,6 +19,7 @@ const page: React.FC<Props> = async ({ params }) => {
     redirect("/");
   }
 
+  await connectDB();
   const order = (await Order.findOne({ _id: params.orderId })
     .populate({
       path: "items",

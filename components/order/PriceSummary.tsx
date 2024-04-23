@@ -45,23 +45,25 @@ const PriceSummary = ({
           {(totalProductsPrice + totalShippingPrice).toFixed(2)}
         </p>
         <Divider />
-        <Button
-          color={isDelivered ? "danger" : "success"}
-          className="text-white"
-          onClick={async () => {
-            await switchDeliveryStatus(orderId);
-          }}
-        >
-          {isDelivered && session?.user.isAdmin ? (
-            <span className="flex gap-3 items-center">
-              Mark As Not Delivered <CalendarX />
-            </span>
-          ) : (
-            <span className="flex gap-3 items-center">
-              Mark As Delivered <CalendarCheck />
-            </span>
-          )}
-        </Button>
+        {session?.user.isAdmin && (
+          <Button
+            color={isDelivered ? "danger" : "success"}
+            className="text-white"
+            onClick={async () => {
+              await switchDeliveryStatus(orderId);
+            }}
+          >
+            {isDelivered ? (
+              <span className="flex gap-3 items-center">
+                Mark As Not Delivered <CalendarX />
+              </span>
+            ) : (
+              <span className="flex gap-3 items-center">
+                Mark As Delivered <CalendarCheck />
+              </span>
+            )}
+          </Button>
+        )}
       </CardBody>
     </Card>
   );

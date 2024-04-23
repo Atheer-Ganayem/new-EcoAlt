@@ -32,16 +32,6 @@ const page = async () => {
     user.cart[index]._id = user.cart[index]._id!.toString();
   }
 
-  const totalQty = user.cart.reduce((prev, current) => prev + current.qty, 0);
-  const totalProductsPrice = user.cart.reduce(
-    (prev, current) => prev + current.qty * (current.product as ProductDoc).price,
-    0
-  );
-  const totalShippingPrice = user.cart.reduce(
-    (prev, current) => prev + current.qty * (current.product as ProductDoc).shippingPrice,
-    0
-  );
-
   return (
     <main className="container mx-auto mt-16 px-5">
       <ItemsTable cart={user.cart} isCheckout />
