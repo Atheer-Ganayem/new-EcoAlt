@@ -41,6 +41,9 @@ export const createOrder: (prev: any, formData: FormData) => Promise<OrderRes> =
     if (!currentUser) {
       return notFound();
     }
+    if (currentUser.cart.length === 0) {
+      return { error: true, message: "Your cart is empty.", code: 422 };
+    }
 
     const availabilityMessage = await checkProductAvailability(currentUser.cart);
     if (availabilityMessage) {

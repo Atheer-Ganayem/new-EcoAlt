@@ -17,20 +17,21 @@ const loading = () => {
       <Table
         classNames={{
           table: "min-h-[400px]",
+          td: "text-center",
         }}
       >
         <TableHeader>
           <TableColumn key="name" allowsSorting>
-            Name
+            Title
           </TableColumn>
           <TableColumn key="height" allowsSorting>
-            Height
+            Quantity
           </TableColumn>
           <TableColumn key="mass" allowsSorting>
-            Mass
+            Price
           </TableColumn>
           <TableColumn key="birth_year" allowsSorting>
-            Birth year
+            Total
           </TableColumn>
         </TableHeader>
         <TableBody

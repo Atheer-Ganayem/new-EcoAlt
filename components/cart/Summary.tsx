@@ -35,7 +35,13 @@ const Summary: React.FC<Props> = ({
           {totalPrice.toFixed(2)}
         </p>
         <Divider />
-        <Button color="success" className="text-white" as={Link} href="/checkout">
+        <Button
+          color="success"
+          className="text-white"
+          as={Link}
+          href="/checkout"
+          isDisabled={totalPrice === 0}
+        >
           Checkout <BaggageClaim />
         </Button>
       </CardBody>

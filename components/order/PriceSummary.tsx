@@ -44,25 +44,27 @@ const PriceSummary = ({
           <HandCoins className="text-warning" /> Total Price ({totalQty} items): $
           {(totalProductsPrice + totalShippingPrice).toFixed(2)}
         </p>
-        <Divider />
         {session?.user.isAdmin && (
-          <Button
-            color={isDelivered ? "danger" : "success"}
-            className="text-white"
-            onClick={async () => {
-              await switchDeliveryStatus(orderId);
-            }}
-          >
-            {isDelivered ? (
-              <span className="flex gap-3 items-center">
-                Mark As Not Delivered <CalendarX />
-              </span>
-            ) : (
-              <span className="flex gap-3 items-center">
-                Mark As Delivered <CalendarCheck />
-              </span>
-            )}
-          </Button>
+          <>
+            <Divider />
+            <Button
+              color={isDelivered ? "danger" : "success"}
+              className="text-white"
+              onClick={async () => {
+                await switchDeliveryStatus(orderId);
+              }}
+            >
+              {isDelivered ? (
+                <span className="flex gap-3 items-center">
+                  Mark As Not Delivered <CalendarX />
+                </span>
+              ) : (
+                <span className="flex gap-3 items-center">
+                  Mark As Delivered <CalendarCheck />
+                </span>
+              )}
+            </Button>
+          </>
         )}
       </CardBody>
     </Card>
