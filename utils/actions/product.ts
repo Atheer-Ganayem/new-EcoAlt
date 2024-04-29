@@ -79,6 +79,7 @@ export const addProduct: (data: Data) => Promise<AddProdudctRes> = async data =>
     });
 
     revalidatePath("/admin/products");
+    revalidatePath("/admin/overview");
     revalidatePath("/");
 
     return {

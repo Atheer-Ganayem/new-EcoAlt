@@ -8,7 +8,7 @@ import {
   Dropdown,
   DropdownMenu,
 } from "@nextui-org/react";
-import { ChevronDown, Package, ShoppingBasket, Users } from "lucide-react";
+import { Activity, ChevronDown, Package, ShoppingBasket, Users } from "lucide-react";
 import { useRouter } from "next/navigation";
 
 const AdminDropdown = () => {
@@ -35,6 +35,13 @@ const AdminDropdown = () => {
       >
         <DropdownItem
           key="autoscaling"
+          startContent={<Activity className="text-primary" />}
+          onClick={() => router.push("/admin/overview")}
+        >
+          Overview
+        </DropdownItem>
+        <DropdownItem
+          key="autoscaling"
           startContent={<ShoppingBasket className="text-success" />}
           onClick={() => router.push("/admin/products")}
         >
@@ -54,34 +61,6 @@ const AdminDropdown = () => {
         >
           Orders
         </DropdownItem>
-        {/* <DropdownItem
-          key="usage_metrics"
-          description="Real-time metrics to debug issues. Slow query added? We’ll show you exactly where."
-          startContent={icons.activity}
-        >
-          Usage Metrics
-        </DropdownItem>
-        <DropdownItem
-          key="production_ready"
-          description="ACME runs on ACME, join us and others serving requests at web scale."
-          startContent={icons.flash}
-        >
-          Production Ready
-        </DropdownItem>
-        <DropdownItem
-          key="99_uptime"
-          description="Applications stay on the grid with high availability and high uptime guarantees."
-          startContent={icons.server}
-        >
-          +99% Uptime
-        </DropdownItem>
-        <DropdownItem
-          key="supreme_support"
-          description="Overcome any challenge with a supporting team ready to respond."
-          startContent={icons.user}
-        >
-          +Supreme Support
-        </DropdownItem> */}
       </DropdownMenu>
     </Dropdown>
   );

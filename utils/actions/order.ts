@@ -75,6 +75,8 @@ export const createOrder: (prev: any, formData: FormData) => Promise<OrderRes> =
     currentUser.cart = [];
     await currentUser.save();
 
+    revalidatePath("/admin/overview");
+
     return {
       error: false,
       message: "Order created successfully",

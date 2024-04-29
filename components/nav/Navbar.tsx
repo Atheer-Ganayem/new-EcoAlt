@@ -27,6 +27,7 @@ const links = [
 ];
 
 const adminLinks = [
+  { text: "Overview", path: "/admin/overview" },
   { text: "Users", path: "/admin/users" },
   { text: "Products", path: "/admin/products" },
   { text: "Orders", path: "/admin/orders" },
