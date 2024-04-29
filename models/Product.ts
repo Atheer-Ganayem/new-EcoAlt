@@ -15,5 +15,5 @@ const productSchema = new Schema({
   isDeleted: { type: Boolean, required: true, default: false },
 });
 
-const User = models.Product || model("Product", productSchema);
-export default User;
+const Product = models.Product || model("Product", productSchema);
+export default Product;

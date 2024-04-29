@@ -5,6 +5,7 @@ import { Suspense } from "react";
 import Product from "@/models/Product";
 import HomePagintation from "@/components/home/HomePagintation";
 import { connectDB } from "@/utils/connectDB";
+import SearchBar from "@/components/search/SearchBar";
 
 interface Props {
   searchParams: { page: string };
@@ -24,10 +25,11 @@ export default async function Home({ searchParams }: Props) {
 
   const totalPages = Math.ceil((await Product.countDocuments()) / 6);
 
-  console.log(page, totalPages);
-
   return (
-    <main className="container mx-auto max-w-7xl mt-16 p-5">
+    <main className="container mx-auto max-w-7xl mt-8 p-5">
+      <div className="mb-12">
+        <SearchBar currentKey="" />
+      </div>
       <Suspense fallback={<ProductsSkeleton />}>
         <Products page={page} />
         <HomePagintation current={page} total={totalPages} />

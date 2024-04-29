@@ -16,13 +16,14 @@ import Link from "next/link";
 import { useSession } from "next-auth/react";
 import AuthButtons from "./AuthButtons";
 import AvatarDropdown from "./AvatarDropdown";
-import { ShoppingCart } from "lucide-react";
+import { Home, Package, Search, ShoppingCart } from "lucide-react";
 import Image from "next/image";
 import AdminDropdown from "./AdminDropdown";
 
 const links = [
-  { text: "Home", path: "/" },
-  { text: "My Orders", path: "/my-orders" },
+  { text: "Home", path: "/", auth: false, icon: Home },
+  { text: "Search", path: "/search", auth: false, icon: Search },
+  { text: "My Orders", path: "/my-orders", auth: true, icon: Package },
 ];
 
 const adminLinks = [
@@ -54,16 +55,23 @@ export default function App() {
       </NavbarContent>
 
       <NavbarContent className="hidden sm:flex gap-4" justify="center">
-        {links.map((link, index) => (
-          <Link key={index} href={link.path}>
-            <NavbarItem
-              isActive={path === link.path}
-              className={path === link.path ? "text-success" : "text-foreground"}
-            >
-              {link.text}
-            </NavbarItem>
-          </Link>
-        ))}
+        {links.map((link, index) => {
+          return (
+            ((link.auth && session) || !link.auth) && (
+              <Link key={index} href={link.path}>
+                <NavbarItem
+                  isActive={path === link.path}
+                  className={`flex gap-1 items-center ${
+                    path === link.path ? "text-success" : "text-foreground"
+                  }`}
+                >
+                  <link.icon size={22} />
+                  {link.text}
+                </NavbarItem>
+              </Link>
+            )
+          );
+        })}
         {session?.user.isAdmin && <AdminDropdown />}
       </NavbarContent>
       <NavbarContent justify="end">

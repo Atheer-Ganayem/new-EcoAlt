@@ -1,19 +1,8 @@
 "use client";
 
-import type { OrderDoc, ProductDoc } from "@/types/mongoModels";
-import { Card, CardBody, CardHeader, Divider } from "@nextui-org/react";
-import {
-  Building2,
-  Calendar,
-  CalendarCheck,
-  CalendarClock,
-  Flag,
-  HandCoins,
-  Home,
-  Package,
-  Phone,
-  ShoppingBasket,
-} from "lucide-react";
+import type { OrderDoc } from "@/types/mongoModels";
+import { Card, CardBody, Divider } from "@nextui-org/react";
+import { Building2, Calendar, CalendarCheck, CalendarClock, Flag, Home, Phone } from "lucide-react";
 import Image from "next/image";
 import PriceSummary from "./PriceSummary";
 
@@ -23,8 +12,12 @@ interface Props {
 
 const Info: React.FC<Props> = ({ order }) => {
   return (
-    <div className="flex gap-10 mb-10 ">
-      <PriceSummary items={order.items} orderId={order._id.toString()} isDelivered={order.isDelivered} />
+    <div className="flex gap-10 mb-10 lg:flex-row flex-col lg:items-start items-center">
+      <PriceSummary
+        items={order.items}
+        orderId={order._id.toString()}
+        isDelivered={order.isDelivered}
+      />
       <Card className="w-fit p-5">
         <CardBody className="flex flex-col gap-3">
           <p className="flex gap-3 items-center font-bold">
