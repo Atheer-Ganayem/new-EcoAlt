@@ -226,6 +226,7 @@ export const swtichIsDeletedProduct: (
     revalidatePath(`/products/${product._id}`);
     revalidatePath("/");
     revalidatePath("/cart");
+    revalidatePath("/admin/overview");
 
     return {
       error: false,
