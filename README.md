@@ -2,6 +2,26 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Delpoyment link: https://eco-alt.vercel.app/
 
+# Website descroption
+
+At Eco-Alt, we're on a mission to make sustainable living accessible and convenient for everyone. We understand the importance of reducing our environmental footprint, which is why we offer a wide range of eco-friendly products as alternatives to everyday items made from non-eco-friendly materials.
+
+## Technologies Used
+
+# Front-end
+
+- Next.js
+- React
+- Tailwind CSS
+- Next UI
+
+# Back-end
+
+- Node.js
+- MongoDB and Mongoose
+- Next-Auth
+- AWS S3 bueckets
+
 ![Untitled Diagram drawio (1)](https://github.com/Atheer-Ganayem/new-EcoAlt/assets/90772309/efb9b01e-9114-48fb-8e8f-dd95ec043734)
 
 ![New Model diagram - Model](https://github.com/Atheer-Ganayem/new-EcoAlt/assets/90772309/411170dc-21a1-4a9d-bd13-76909dc8de9c)
