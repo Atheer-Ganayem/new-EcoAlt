@@ -1,6 +1,7 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Delpoyment link: https://eco-alt.vercel.app
+## Delpoyment link: [Visit Eco-Alt](http://www.ecoalt.com){:target="_blank"}
+
 
 # Website description
 
