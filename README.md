@@ -1,8 +1,8 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Delpoyment link: https://eco-alt.vercel.app/
+## Delpoyment link: https://eco-alt.vercel.app
 
-# Website descroption
+# Website description
 
 At Eco-Alt, we're on a mission to make sustainable living accessible and convenient for everyone. We understand the importance of reducing our environmental footprint, which is why we offer a wide range of eco-friendly products as alternatives to everyday items made from non-eco-friendly materials.
 
