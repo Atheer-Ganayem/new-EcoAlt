@@ -62,8 +62,8 @@ export default function App() {
               <Link key={index} href={link.path}>
                 <NavbarItem
                   isActive={path === link.path}
-                  className={`flex gap-1 items-center ${
-                    path === link.path ? "text-success" : "text-foreground"
+                  className={`flex gap-1 items-center duration-150 ${
+                    path === link.path ? "text-success" : "text-foreground hover:text-success-500 "
                   }`}
                 >
                   <link.icon size={22} />

@@ -92,4 +92,3 @@ function validate({ name, email, password, confirmPassword, avatar }: Data): str
 
   return "";
 }
-

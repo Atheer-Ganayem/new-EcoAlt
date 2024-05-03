@@ -11,7 +11,7 @@ import {
   TableHeader,
   TableRow,
 } from "@nextui-org/react";
-import { Eye, Trash } from "lucide-react";
+import { Eye } from "lucide-react";
 import Link from "next/link";
 
 interface Props {
@@ -45,7 +45,6 @@ const UsersTable: React.FC<Props> = ({ users }) => {
             </TableCell>
             <TableCell className="text-center">
               <div className="flex justify-center gap-2">
-                <Trash className="text-danger cursor-pointer" />
                 <Link href={`/users/${user._id}`}>
                   <Eye className="text-warning cursor-pointer" />
                 </Link>

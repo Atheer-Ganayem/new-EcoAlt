@@ -213,3 +213,41 @@ function extractChangePasswordData(formData: FormData): ChangePasswordData {
     userId,
   };
 }
+
+// delete user
+
+export const deleteUser: (userId: string) => Promise<Res> = async userId => {
+  console.log("deleting user");
+
+  try {
+    const session = await getServerSession(authOptions);
+    if (!session) {
+      return notAuthorized();
+    }
+
+    await connectDB();
+    const currentUser = (await User.findById(session.user.id).select("isAdmin")) as UserDoc;
+    const targetUser = (await User.findById(userId).select("password avatar")) as UserDoc;
+    if (!currentUser || !targetUser) {
+      return notFound();
+    }
+    if (!currentUser.isAdmin && currentUser._id.toString() !== targetUser._id.toString()) {
+      return notAuthorized();
+    }
+
+    s3.deleteObject({
+      Bucket: "eco-alt-project",
+      Key: targetUser.avatar,
+    });
+
+    await User.findByIdAndDelete(targetUser._id);
+
+    return {
+      error: false,
+      message: "User has been deleted successfully.",
+      code: 201,
+    };
+  } catch (error) {
+    return serverSideError();
+  }
+};
