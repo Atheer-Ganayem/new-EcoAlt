@@ -2,6 +2,7 @@
 const nextConfig = {
   env: {
     AWS: "https://eco-alt-project.s3.eu-central-1.amazonaws.com/",
+    API: "https://web-production-d667.up.railway.app",
   },
   images: {
     remotePatterns: [

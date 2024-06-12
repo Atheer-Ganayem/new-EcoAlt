@@ -8,7 +8,7 @@ import { UserDoc } from "@/types/mongoModels";
 export const authOptions: AuthOptions = {
   providers: [
     CredentialsProvider({
-      name: "credentials",
+      name: " ",
       credentials: {
         email: {},
         password: {},
@@ -54,7 +54,6 @@ export const authOptions: AuthOptions = {
         session.user.isAdmin = token.isAdmin as boolean;
         session.user.avatar = token.avatar as string;
       }
-
       return session;
     },
     async jwt(params) {

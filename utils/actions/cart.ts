@@ -118,7 +118,7 @@ export const removeFromCart: (productId: string) => Promise<Res> = async product
       return notAuthorized();
     }
 
-    await connectDB()
+    await connectDB();
     const currentUser = (await User.findById(session.user.id).select("cart")) as UserDoc;
     if (!currentUser) {
       return notFound();
