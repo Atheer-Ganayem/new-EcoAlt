@@ -1,6 +1,5 @@
 "use client";
 
-import useTip from "@/hooks/useTip";
 import { Button, Input } from "@nextui-org/react";
 import { SearchIcon } from "lucide-react";
 import { redirect } from "next/navigation";
@@ -11,7 +10,6 @@ interface Props {
 }
 
 const SearchBar: React.FC<Props> = ({ currentKey }) => {
-  const tip = useTip();
   function onSearchHandler(formData: FormData) {
     const key = formData.get("key") as string;
 
@@ -45,11 +43,6 @@ const SearchBar: React.FC<Props> = ({ currentKey }) => {
           <SearchIcon />
         </Button>
       </form>
-      {tip && (
-        <h1 className="text-3xl text-center mt-3 font-bold">
-          Tip: <span className="text-primary">{tip}</span>
-        </h1>
-      )}
     </>
   );
 };
